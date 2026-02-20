@@ -6,7 +6,6 @@ import Nodejs from '../assets/Images/Node.js.png'
 import Python from '../assets/Images/python.png'
 import vite from '../assets/Images/vite.jpeg'
 import JavaScript from '../assets/Images/Javascript.png'
-import { div } from 'framer-motion/client'
 const Skills = ({darkMode}) => {
     const skills =[
         {name: 'Java', icon: Java , level:95
