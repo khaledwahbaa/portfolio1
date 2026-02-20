@@ -1,0 +1,225 @@
+{/*mport { useState ,useEffect} from "react";
+
+import Project6 from "../assets/Images/Project6.png";
+import Project2 from "../assets/Images/Project2.png";
+import Project3 from "../assets/Images/Project3.png";
+import Project4 from "../assets/Images/Project4.jpg";
+import Project5 from "../assets/Images/Project5.jpg";
+import { div } from "framer-motion/client";
+
+const Project = ({ darkMode }) => {
+  const projects = [
+    {
+      id: 1,
+      title: "Designer Website",
+      image: Project6,
+      category: "Website",
+      tags: ["React", "Tailwind"],
+      description: "A modern and creative designer portfolio website that showcasespersonal projects, skills, and services. The homepage includes a visually appealing hero section, smooth navigation, and featured works displayed in an interactive layout. The website focuses on clean UI design, responsive layout, and engaging animations to highlight the designer’s creativity and professionalism. It also includes sections like About, Services, Portfolio, and Contact"
+    },
+    {
+      id: 2,
+      title: "Landing Page UI",
+      image: Project2,
+      category: "UI",
+      tags: ["UI", "Tailwind"],
+      description: "A clean and conversion-focused landing page designed to promote a product or service. The page includes a strong hero section with a call-to-action button, feature highlights, testimonials, pricing section, and a footer with contact information. The design emphasizes simplicity, modern UI principles, and responsive performance to ensure high user engagement and better conversion rates."
+    },
+    {
+      id: 3,
+      title: "Education Website",
+      image: Project3,
+      category: "Website",
+      tags: ["React", "JavaScript", "Node.js"],
+      description: " An educational platform website designed for students to explore courses and learning materials. The website includes course listings, detailed course pages, instructor profiles, and a registration/login system (frontend). It features a structured layout, user-friendly navigation, and organized categories to help students easily find relevant educational content. The design ensures accessibility and responsiveness across devices."
+    },
+    {
+      id: 4,
+      title: "Charity Website",
+      image: Project4,
+      category: "Website",
+      tags: ["Tailwind", "Node.js"],
+      description: "A charity organization website created to raise awareness and collect donations for social causes. The homepage presents the mission and vision clearly, followed by ongoing campaigns, success stories, and a secure donation section (UI). The design focuses on emotional connection, trust-building elements, and easy navigation to encourage visitors to support the cause. "
+    },
+    {
+      id: 5,
+      title: "Game Store",
+      image: Project5,
+      category: "Dashboard",
+      tags: ["Tailwind", "MongoDB"],
+      description: "An online game store website that displays trending and popular games with detailed descriptions, prices, and ratings. The website includes categories, search functionality (UI), featured banners, and a shopping cart interface (frontend only). The design is dynamic and visually engaging, targeting gamers with modern graphics and interactive elements while maintaining a smooth user experience. "
+    },
+  ];
+
+  const filters = ["All", "UI", "Website", "Dashboard"];
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [selectedProject,setSelectedProject]=useState(null);
+  const filteredProjects =
+    activeFilter === "All"
+      ? projects
+      : projects.filter(
+          (project) => project.category === activeFilter
+        );
+
+  return (
+    <section
+      id="projects"
+  className="py-20 scroll-mt-24"
+  style={{
+    backgroundColor: darkMode ? "#111827" : "#f9fafb",
+    color: darkMode ? "white" : "#1f2937" 
+  }}
+    >
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Title *}
+        <div className="text-center mb-14" data-aos="fade-up">
+          <h2
+            className="text-3xl sm:text-4xl font-bold mb-4"
+            style={{ color: darkMode ? "white" : "#1f2937" }}
+          >
+            My{" "}
+            <span
+              style={{
+                background:
+                  "linear-gradient(to right, #f97316, #f59e0b)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Projects
+            </span>
+          </h2>
+
+          <p
+            className="text-lg max-w-2xl mx-auto leading-relaxed"
+            style={{
+              color: darkMode ? "#d1d5db" : "#4b5563",
+            }}
+          >
+            A showcase of my UI & frontend concepts
+          </p>
+        </div>
+
+        {/* Filters /}
+        <div
+          className="flex justify-center gap-4 mb-16 flex-wrap"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          {filters.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`px-6 py-2 rounded-full border text-sm font-medium
+                transition-all duration-300
+                ${
+                  activeFilter === filter
+                    ? "bg-orange-500 text-white border-orange-500 shadow-md"
+                    : darkMode
+                    ? "bg-gray-800 text-gray-300 border-gray-700 hover:bg-orange-500/20 hover:text-orange-400"
+                    : "bg-gray-100 text-gray-600 border-gray-200 hover:bg-orange-100 hover:text-orange-600"
+                }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+
+        {/* Projects Grid/}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
+            <div
+              key={project.id}
+              onClick={()=>setSelectedProject(project)}
+              data-aos="fade-up"
+              data-aos-delay={`${300 + index * 100}`}
+              className={`group rounded-2xl border overflow-hidden
+                transition-all duration-300
+                hover:-translate-y-2
+                ${
+                  darkMode
+                    ? "bg-gray-900 border-gray-700 hover:border-orange-500/40"
+                    : "bg-white border-gray-200 hover:border-orange-500/40"
+                }
+                hover:shadow-[0_0_30px_rgba(255,165,0,0.15)]`}
+            >
+              {/* Image/}
+              <div className="overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover
+                             transition-transform duration-500
+                             group-hover:scale-105"
+                />
+              </div>
+
+              {/* Content /}
+              <div className="p-5">
+                <h3
+                  className="text-lg font-semibold mb-3"
+                  style={{
+                    color: darkMode ? "white" : "#1f2937",
+                  }}
+                >
+                  {project.title}
+                </h3>
+
+                {/* underline animation }
+                <div className="h-1 w-10 rounded-full bg-orange-400 mb-4
+                                group-hover:w-full transition-all duration-500" />
+
+                {/* Tags }
+                <div className="flex gap-2 flex-wrap">
+                  {project.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="text-xs px-3 py-1 rounded-full
+                                 border border-orange-200
+                                 text-orange-600"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {selectedProject &&(
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div
+          className={`p-8 rounded-2xl max-w-lg w-full relative
+            ${darkMode ? "bg-gray-900 text-white":"bg-white text-gray-800"}`}
+          >
+            <button onClick={()=> selectedProject(null)}
+              className="absolute top-3 right-3 text-xl">
+                  ✕
+            </button>
+            <h3 className="text-2xl font-bold mb-4">
+              {selectedProject.title}
+            </h3>
+            <p className="mb-4">
+              {selectedProject.description}
+            </p>
+            <div className="flex gap-2 flex-wrap">
+              {selectedProject.tags.map((tag,index)=>(
+                <span
+                key={index}
+                className="text-xs px-3 py-1 rounded-full border border-orange-200
+                text-orange-600"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Project;*/}
