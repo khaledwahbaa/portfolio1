@@ -80,5 +80,5 @@ Full stack Developer
     
   )
 }
-
+ 
 export default Footer

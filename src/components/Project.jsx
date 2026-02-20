@@ -92,8 +92,8 @@ const Project = ({ darkMode }) => {
               }}
             >
               Projects
-            </span>
-          </h2>
+    </span>
+        </h2>
 
           <p className="text-lg max-w-2xl mx-auto leading-relaxed">
             A showcase of my UI & frontend concepts
@@ -103,42 +103,42 @@ const Project = ({ darkMode }) => {
         
         <div className="flex justify-center gap-4 mb-16 flex-wrap">
           {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2 rounded-full border text-sm font-medium transition-all duration-300
-                ${
+         <button
+             key={filter}
+             onClick={() => setActiveFilter(filter)}
+             className={`px-6 py-2 rounded-full border text-sm font-medium transition-all duration-300
+             ${
                   activeFilter === filter
-                    ? "bg-orange-500 text-white border-orange-500 shadow-md"
+                  ? "bg-orange-500 text-white border-orange-500 shadow-md"
                     : darkMode
-                    ? "bg-gray-800 text-gray-300 border-gray-700 hover:bg-orange-500/20 hover:text-orange-400"
-                    : "bg-gray-100 text-gray-600 border-gray-200 hover:bg-orange-100 hover:text-orange-600"
-                }`}
+         ? "bg-gray-800 text-gray-300 border-gray-700 hover:bg-orange-500/20 hover:text-orange-400"
+              : "bg-gray-100 text-gray-600 border-gray-200 hover:bg-orange-100 hover:text-orange-600"
+         }`}
             >
-              {filter}
-            </button>
-          ))}
+        {filter}
+        </button>
+      ))}
         </div>
 
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <div
-              key={project.id}
-              onClick={() => setSelectedProject(project)}
-              className={`cursor-pointer group rounded-2xl border overflow-hidden
-                transition-all duration-300 hover:-translate-y-2
-                ${
-                  darkMode
-                    ? "bg-gray-900 border-gray-700 hover:border-orange-500/40"
-                    : "bg-white border-gray-200 hover:border-orange-500/40"
-                }
-                hover:shadow-[0_0_30px_rgba(255,165,0,0.15)]`}
+           key={project.id}
+           onClick={() => setSelectedProject(project)}
+       className={`cursor-pointer group rounded-2xl border overflow-hidden
+           transition-all duration-300 hover:-translate-y-2
+            ${
+           darkMode
+          ? "bg-gray-900 border-gray-700 hover:border-orange-500/40"
+          : "bg-white border-gray-200 hover:border-orange-500/40"
+           }
+          hover:shadow-[0_0_30px_rgba(255,165,0,0.15)]`}
             >
-              <div className="overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
+        <div className="overflow-hidden">
+            <img
+            src={project.image}
+            alt={project.title}
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
                   width="600"
                   height="300"
@@ -155,7 +155,7 @@ const Project = ({ darkMode }) => {
 
                 <div className="flex gap-2 flex-wrap">
                   {project.tags.map((tag, index) => (
-                    <span
+                  <span
                       key={index}
                       className="text-xs px-3 py-1 rounded-full border border-orange-200 text-orange-600"
                     >
