@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import NavBar from "./componets/NavBar";
-import Hero from "./componets/Hero";
-import About from "./componets/About";
-import Skills from "./componets/Skills";
-import Project from "./componets/Project";
-import Contact from "./componets/contact";
-import Footer from "./componets/Footer";
+import NavBar from "./components/NavBar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Project from "./components/Project";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
