@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Project6 from "../assets/Images/Project6.png";
 import Project2 from "../assets/Images/Project2.png";
-import Project3 from "../assets/Images/Project3.png";
+import Project3 from "../assets/Images/project3.png";
 import Project4 from "../assets/Images/Project4.jpg";
 import Project5 from "../assets/Images/Project5.jpg";
 
